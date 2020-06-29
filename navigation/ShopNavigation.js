@@ -30,6 +30,12 @@ const ProductNavigator = () =><Stack.Navigator >
     <Stack.Screen name = 'Cart' component ={CartScreen} options ={defaultNavOptions}  />
 
     </Stack.Navigator>
+
+const orderNavigator = () => <Stack.Navigator >
+<Stack.Screen  name = 'Order' component= {OrderScreen}  options = {{...defaultNavOptions }} />
+
+
+</Stack.Navigator>
  const Drawer = createDrawerNavigator();
 
  const myDrawer = () => <NavigationContainer>
@@ -39,7 +45,7 @@ const ProductNavigator = () =><Stack.Navigator >
          )}} />
 
 
-         <Drawer.Screen name = 'order' children ={OrderScreen} options ={{...defaultNavOptions , drawerIcon: drawerConfig => (
+         <Drawer.Screen name = 'order' children ={orderNavigator} options ={{...defaultNavOptions , drawerIcon: drawerConfig => (
              <Ionicons name ='md-list' size ={23} />
          )}} />
      </Drawer.Navigator>

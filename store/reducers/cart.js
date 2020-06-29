@@ -1,5 +1,5 @@
 import Cart from "../../models/cart"
-import { ADD_TO_CART , DELETE_TO_CART } from "../actions/actionTypes"
+import { ADD_TO_CART , DELETE_TO_CART , ADD_ORDER } from "../actions/actionTypes"
 
 const initialState = {
     items : {} ,
@@ -50,6 +50,8 @@ export default (state = initialState , action) => {
         }   
 
         }
+        case ADD_ORDER : 
+        return initialState
        
         default : 
             return state

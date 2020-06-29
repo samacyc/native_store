@@ -1,9 +1,9 @@
 class Order {
-    constructor(id , items , amount , data) {
+    constructor(id , items , amount , date) {
         this.id = id 
         this.items = items
         this.amount = amount 
-        this.data = data
+        this.date = date
     }
 }
 

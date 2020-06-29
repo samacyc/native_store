@@ -11,7 +11,6 @@ import { addCart } from '../../store/actions/cart';
 const ProductsOverviewScreen = props => {
   const dispatch = useDispatch()
   const products = useSelector(state => state.products.availableProducts)
-  console.log(products)
   props.navigation.setOptions({ headerLeft : () =><HeaderButtons HeaderButtonComponent = {CustomHeaderButton}>
   <Item title = 'Menu' iconName = 'ios-menu' onPress = {() => {
     props.navigation.toggleDrawer()
@@ -23,7 +22,7 @@ const ProductsOverviewScreen = props => {
   }} 
   />
 </HeaderButtons>  })
-return  <FlatList data={products}   keyExtractor={item => item.id}renderItem={({ item }) => <ProductItem onAddToCart ={() => {console.log(item) ,dispatch(addCart(item))}} view = {() => props.navigation.navigate('ProductDetail' , {
+return  <FlatList data={products}   keyExtractor={item => item.id}renderItem={({ item }) => <ProductItem onAddToCart ={() => {dispatch(addCart(item))}} view = {() => props.navigation.navigate('ProductDetail' , {
   productId : item.id
 })} url = {item.imageUrl} price = {item.price} title = {item.title} /> } />
 }
