@@ -1,10 +1,15 @@
-import React  from 'react'
+import React , {useEffect} from 'react'
 import {View , Text , FlatList} from 'react-native'
-import {useSelector} from 'react-redux'
+import {useSelector , useDispatch} from 'react-redux'
 import OrderItem from '../../component/shop/OrderItem'
+import { fetchOrders } from '../../store/actions/order'
 
 
 const OrderScreen = props => {
+    const dispatch = useDispatch()
+    useEffect(()=> {
+        dispatch(fetchOrders())
+    } , [dispatch])
     const Price = useSelector(state => state.order.orders)
     console.log(Price)
     return (<View>

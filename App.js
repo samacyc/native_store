@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
-import { createStore , combineReducers} from 'redux'
+import { createStore , combineReducers , applyMiddleware} from 'redux'
 import { Provider} from 'react-redux'
-
+import ReduxThunk  from 'redux-thunk'
 import productsReducer from './store/reducers/product'
 import ProductNavigator from './navigation/ShopNavigation';
 import {AppLoading} from 'expo'
@@ -21,7 +21,7 @@ const roorReducer = combineReducers({
   cart : cartReducer , 
   order : orderReducer
 })
-const store = createStore(roorReducer )
+const store = createStore(roorReducer , applyMiddleware(ReduxThunk) )
 
 export default function App() {
   const [Loaded , setLoadFont] = useState(false) 
